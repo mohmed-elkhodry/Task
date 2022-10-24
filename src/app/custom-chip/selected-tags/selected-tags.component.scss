@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  gap: 6px;
+  background-color: #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  justify-content: space-between;
+  align-items: center;
+  // width: 80px;
+  height: 12px;
+  .removeAction {
+    cursor: pointer;
+    &:hover{
+      color: red;
+    }
+  }
+}

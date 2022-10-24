@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <div class="selectedTags">
+    <selected-tags
+      *ngFor="let tag of SelectedTags; trackBy: trackByFn"
+      [item]="tag"
+      (removeItem)="removeItemFromSelectedTags($event)"
+    ></selected-tags>
+  </div>
+  <input
+    type="text"
+    class="form-control"
+    #searchInput
+    [placeholder]="placeholder"
+    (keyup)="ShowSuggestions($event)"
+  />
+</div>
+<ul class="suggestions" *ngIf="isShowSuggestions" role="list" (keyup)="dummy()">
+  <li
+    *ngFor="let item of filteredItems; let index = index; trackBy: trackByFn"
+    (click)="addItemToSelectedTags(item)"
+    [attr.tabIndex]="index"
+  >
+    {{ item.label }}
+  </li>
+</ul>
